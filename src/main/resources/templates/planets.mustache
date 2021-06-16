@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Menu planets</title>
+</head>
+<body style="background-color: #2a2a2a">
+<div>
+    <h1 style="color: white">Это меню управления планетами</h1>
+</div>
+<form method="post">
+    <input type="text" name="name" placeholder="Введите имя"/>
+    <button type="submit">Добавить планету</button>
+    <br>
+    <div style="color: red">
+        {{error}}
+    </div>
+</form>
+<b style="color: white">Список всех планет</b>
+<table border="1" style="color: white">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Назначить повелителя</th>
+        <th>Удалить планету</th>
+    </tr>
+    {{#planets}}
+        <tr>
+            <td>
+                <i>{{id}}</i>
+            </td>
+            <td>
+                {{planetName}}
+            </td>
+            <td>
+                <form style="color: white" method="post" action="addlord">
+                    <input type="number" name="lordid" placeholder="Введите id повелителя"/>
+                    <input type="hidden" name="planetid" value="{{id}}"/>
+                    <button type="submit">назначить повелителя</button>
+                </form>
+            </td>
+            <td>
+                <form method="post" action="delete">
+                    <input type="hidden" name="delete" value="{{id}}"/>
+                    <button type="submit">Удалить планету</button>
+                </form>
+            </td>
+        </tr>
+    {{/planets}}
+</table>
+<a href="/">Стартовая страница</a>
+</body>
+</html>
