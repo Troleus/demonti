@@ -29,7 +29,7 @@ public class LordServiceImpl implements LordService {
     @Override
     public List<Lord> getTop10YangLords() {
         List<Lord> top = lordRepos.findByOrderByAge();
-        if(top.size() > 10) {
+        if (top.size() > 10) {
             return top.subList(0, 10);
         }
         return top;
