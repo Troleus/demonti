@@ -1,9 +1,12 @@
 package com.example.demonti.service.impl;
 
+/**
+ * Данная работа является тестовой
+ */
+
 import com.example.demonti.domain.Lord;
 import com.example.demonti.repos.LordRepos;
 import com.example.demonti.service.LordService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,8 +15,11 @@ import java.util.Optional;
 @Service
 public class LordServiceImpl implements LordService {
 
-    @Autowired
-    private LordRepos lordRepos;
+    private final LordRepos lordRepos;
+
+    public LordServiceImpl(LordRepos lordRepos) {
+        this.lordRepos = lordRepos;
+    }
 
     @Override
     public Lord addLord(Lord lord) {

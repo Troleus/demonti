@@ -1,5 +1,9 @@
 package com.example.demonti.controller;
 
+/**
+ * Данная работа является тестовой
+ */
+
 import com.example.demonti.domain.Lord;
 import com.example.demonti.service.LordService;
 import org.springframework.beans.factory.annotation.Autowired;

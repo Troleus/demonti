@@ -1,5 +1,9 @@
 package com.example.demonti.service;
 
+/**
+ * Данная работа является тестовой
+ */
+
 import com.example.demonti.domain.Lord;
 
 import java.util.List;

@@ -1,5 +1,9 @@
 package com.example.demonti.domain;
 
+/**
+ * Данная работа является тестовой
+ */
+
 import javax.persistence.*;
 import java.util.List;
 

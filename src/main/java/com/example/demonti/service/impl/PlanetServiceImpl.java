@@ -1,9 +1,12 @@
 package com.example.demonti.service.impl;
 
+/**
+ * Данная работа является тестовой
+ */
+
 import com.example.demonti.domain.Planet;
 import com.example.demonti.repos.PlanetRepos;
 import com.example.demonti.service.PlanetService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -11,8 +14,11 @@ import java.util.Optional;
 @Service
 public class PlanetServiceImpl implements PlanetService {
 
-    @Autowired
-    private PlanetRepos planetRepos;
+    private final PlanetRepos planetRepos;
+
+    public PlanetServiceImpl(PlanetRepos planetRepos) {
+        this.planetRepos = planetRepos;
+    }
 
     @Override
     public Planet addPlanet(Planet planet) {

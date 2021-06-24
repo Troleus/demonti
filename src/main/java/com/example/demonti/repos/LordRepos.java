@@ -1,5 +1,9 @@
 package com.example.demonti.repos;
 
+/**
+ * Данная работа является тестовой
+ */
+
 import com.example.demonti.domain.Lord;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

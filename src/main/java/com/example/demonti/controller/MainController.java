@@ -1,5 +1,9 @@
 package com.example.demonti.controller;
 
+/**
+ * Данная работа является тестовой
+ */
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
