@@ -20,19 +20,20 @@ public class Planet {
     @JoinColumn(name = "over_lord_id")
     private Lord overLord;
 
-    public Lord getOverLord() {
-        return overLord;
-    }
-
-    public void setOverLord(Lord overLord) {
-        this.overLord = overLord;
-    }
 
     public Planet() {
     }
 
     public Planet(String name) {
         this.planetName = name;
+    }
+
+    public Lord getOverLord() {
+        return overLord;
+    }
+
+    public void setOverLord(Lord overLord) {
+        this.overLord = overLord;
     }
 
     public String getPlanetName() {

@@ -7,13 +7,9 @@ import com.example.demonti.service.impl.PlanetServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 public class PlanetServiceImplTest {
 
@@ -21,23 +17,24 @@ public class PlanetServiceImplTest {
     private PlanetService planetService = new PlanetServiceImpl(planetRepos);
 
     @Test
-    public void shouldAddPlanet(){
-        List<Planet> planetList = new ArrayList<>();
-        planetService.addPlanet(new Planet("as1z"));
+    public void shouldAddPlanet() {
+        Planet planet = new Planet("as1z");
+        planet.setId(12L);
+        Planet newPlanet = new Planet("as1z");
+        Mockito.when(planetRepos.saveAndFlush(newPlanet)).thenReturn(planet);
 
-        Mockito.when(planetRepos.findAll()).thenReturn(planetList);
+        Planet actualPlanet = planetService.addPlanet(newPlanet);
 
-        assertEquals(planetList.size(), 1);
-        assertEquals(planetList.get(0).getPlanetName(), "as1z");
+        assertEquals(actualPlanet.getId(), planet.getId());
+        assertEquals(actualPlanet.getPlanetName(), planet.getPlanetName());
     }
 
     @Test
-    public void shouldDeletePlanet(){
-        List<Planet> deleteList = Arrays.asList(new Planet("qa23s"));
-        Mockito.when(planetRepos.findAll()).thenReturn(deleteList);
+    public void shouldDeletePlanet() {
+        long id = 12;
 
-        planetService.delete(anyLong());
+        planetService.delete(id);
 
-        assertEquals(deleteList.size(), 0);
+        verify(planetRepos).deleteById(id);
     }
 }
